@@ -1,0 +1,25 @@
+p {
+  margin: 20 auto;
+}
+
+button {
+  display: block;
+  margin: 40 auto;
+  width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  font-size: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+}
+.start {
+  background-color: lawngreen;
+}
+.stop {
+  background-color: red;
+}
+.start:disabled {
+  background-color: gray;
+}

@@ -1,0 +1,6 @@
+#startBtn {
+  background-color: greenyellow;
+}
+#startBtn:disabled {
+  background-color: grey;
+}
