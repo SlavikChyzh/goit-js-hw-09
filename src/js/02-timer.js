@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const startBtn = document.getElementById('startBtn');
 const daysEl = document.getElementById('days');
@@ -18,7 +19,12 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0].getTime() < new Date().getTime()) {
-      window.alert('Please choose a date in the future');
+      //    window.alert('Please choose a date in the future');
+      Report.failure(
+        'Timer error',
+        '"Please choose a date in the future"',
+        'Okay'
+      );
     } else {
       timeData = selectedDates[0];
       startBtn.disabled = false;
@@ -35,7 +41,7 @@ startBtn.addEventListener('click', () => {
   let timerId = setInterval(() => {
     let time = timeData.getTime() - new Date().getTime();
     if (time < 1000) {
-      window.alert('Time is over');
+      Report.success('Hooray', 'Timer is over."', 'Okay');
       clearInterval(timerId);
     }
     displayTimer(time);
